@@ -26,8 +26,8 @@ document.querySelector("#user_create").addEventListener("click", function() {
 });
 
 document.querySelector("#createUser").addEventListener("click", function() { 
-    var pavadinimas = document.querySelector("#pavadinimas").value;
-    var aprasymas = document.querySelector("#aprasymas").value;
+    var vardas = document.querySelector("#vardas").value;
+    var slapyvardis = document.querySelector("#slapyvardis").value;
     var tipas_id = document.querySelector("#tipas_id").value;
 
     var xhttp = new XMLHttpRequest(); //objektas
@@ -38,7 +38,7 @@ document.querySelector("#createUser").addEventListener("click", function() {
         }
     };
     
-    xhttp.open("GET", "addUsers.php?pavadinimas=" + pavadinimas + "&aprasymas=" + aprasymas + "&tipas_id=" + tipas_id, true);
+    xhttp.open("GET", "addUsers.php?vardas=" + vardas + "&aslapyvardis=" + slapyvardis + "&tipas_id=" + tipas_id, true);
     xhttp.send();
     
     showUsers();

@@ -19,7 +19,7 @@
 
             $pavadinimas = "pavadinimas".$i;
             $aprasymas = "aprasymas".$i;
-            $tipas_id = rand(1, 5);
+            $tipas_id = rand(1, 4);
 
             $sql = "INSERT INTO `imones`(`pavadinimas`, `aprasymas`, `tipas_ID`) 
             VALUES ('$pavadinimas','$aprasymas','$tipas_id')";

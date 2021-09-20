@@ -27,7 +27,7 @@
         <button id="user_create">Sukurti nauja Vartotoja</button>
         
         <div class="companyForm d-none">
-            <input  id="Vardas" class="form-control" placeholder="Įveskite vartotojo varda" />
+            <input  id="vardas" class="form-control" placeholder="Įveskite vartotojo varda" />
             <input id="slapyvardis" class="form-control" placeholder="Įveskite vartotojo slapyvardi" />
             <input id="slaptazodis" class="password" placeholder="Įveskite vartotojo slaptazodi" />
             <input id="teises_id" class="form-control" placeholder="Įveskita teises_id" />
@@ -39,21 +39,22 @@
             <table class="table table-striped">
                 <?php 
                 
-                $sql = "SELECT uzsiregistrave_vartotojai.ID, uzsiregistrave_vartotojai.Vardas AS imones_pavadinimas, imones.aprasymas AS imones_aprasymas, imones_tipas.pavadinimas AS imones_tipas_pavadinimas, imones_tipas.aprasymas AS imones_tipas_aprasymas 
-                FROM `uzsiregistrave_vartotojai` 
-                LEFT JOIN vartotojai_teises ON uzsiregistrave_vartotojai.teises_id = vartotojai_teises.pavadinimas 
-                WHERE 1 
+                $sql = "SELECT uzsiregistrave_vartotojai.ID, uzsiregistrave_vartotojai.vardas AS uzsiregistrave_vartotojai_vardas,
+                uzsiregistrave_vartotojai.slapyvardis AS uzsiregistrave_vartotojai_slapyvardis, 
+                vartotojai_teises.pavadinimas AS vartotojai_teises_pavadinimas
+                FROM uzsiregistrave_vartotojai 
+                LEFT JOIN vartotojai_teises ON uzsiregistrave_vartotojai.teises_id = vartotojai_teises.ID
+                WHERE 1
                 ORDER BY uzsiregistrave_vartotojai.ID DESC";
 
                 $result = $conn->query($sql);
 
-                while($companies = mysqli_fetch_array($result)) {
+                while($users = mysqli_fetch_array($result)) {
                     echo "<tr>";
-                        echo "<td>".$companies["ID"]."</td>";
-                        echo "<td>".$companies["imones_pavadinimas"]."</td>";
-                        echo "<td>".$companies["imones_aprasymas"]."</td>";
-                        echo "<td>".$companies["imones_tipas_pavadinimas"]."</td>";
-                        echo "<td>".$companies["imones_tipas_aprasymas"]."</td>";
+                        echo "<td>".$users["ID"]."</td>";
+                        echo "<td>".$users["uzsiregistrave_vartotojai_vardas"]."</td>";
+                        echo "<td>".$users["uzsiregistrave_vartotojai_slapyvardis"]."</td>";
+                        echo "<td>".$users["vartotojai_teises_pavadinimas"]."</td>";
                     echo "</tr>";
                 }
                 
