@@ -34,13 +34,24 @@
             <button id="createCompany">Create</button>
         </div>
 
+        <form action="companies.php" method="POST">
+            <button type="submit" name="submit">Rodyti įmones</button> 
+        </form>
+
+
+
+
+        <button id="show"> Show Clients AJAX</button>
+        <div id="output"></div>
+
+
         <div id="output">
             <table class="table table-striped">
                 <?php 
                 
-                $sql = "SELECT imones.ID, imones.pavadinimas AS imones_pavadinimas, imones.aprasymas AS imones_aprasymas, imones_tipas.pavadinimas AS imones_tipas_pavadinimas, imones_tipas.aprasymas AS imones_tipas_aprasymas 
+                $sql = "SELECT imones.ID, imones.pavadinimas AS imones_pavadinimas,  imone_tipas.pavadinimas AS imone_tipas_pavadinimas, imone_tipas.aprasymas AS imone_tipas_aprasymas 
                 FROM `imones` 
-                LEFT JOIN imones_tipas ON imones.tipas_ID = imones_tipas.ID 
+                LEFT JOIN imone_tipas ON imones.tipas_ID = imone_tipas.ID 
                 WHERE 1 
                 ORDER BY imones.ID DESC";
 
@@ -48,12 +59,13 @@
 
                 while($companies = mysqli_fetch_array($result)) {
                     echo "<tr>";
-                        echo "<td>".$companies["ID"]."</td>";
-                        echo "<td>".$companies["imones_pavadinimas"]."</td>";
-                        echo "<td>".$companies["imones_aprasymas"]."</td>";
-                        echo "<td>".$companies["imones_tipas_pavadinimas"]."</td>";
-                        echo "<td>".$companies["imones_tipas_aprasymas"]."</td>";
-                    echo "</tr>";
+                       echo "<td>".$companies["ID"]."</td>";
+                       echo "<td>".$companies["imones_pavadinimas"]."</td>";
+                       echo "<td>".$companies["imone_tipas_pavadinimas"]."</td>";
+                       echo "<td>".$companies["imone_tipas_aprasymas"]."</td>";
+                            echo    "<button class='deleteCompany' data-company-id='".$companies["ID"]."' >Delete</button>";
+                        echo "</td>";
+                   echo "</tr>";
                 }
                 
                 ?>

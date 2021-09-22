@@ -14,7 +14,7 @@ $sql = "INSERT INTO `uzsiregistrave_vartotojai`(`vardas`, `slapyvardis`, `slapta
 if(mysqli_query($conn, $sql)) {
 
     echo '<div class="alert alert-success" role="alert">';
-        echo "Vartotojas".$vardas." ".$pslapyvardis." pridėtas sėkmingai";       
+        echo "Vartotojas".$vardas." ".$slapyvardis." pridėtas sėkmingai";       
     echo '</div>';
 } else {
     echo '<div class="alert alert-danger" role="alert">';

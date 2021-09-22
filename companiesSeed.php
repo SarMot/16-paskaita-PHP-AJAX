@@ -15,14 +15,13 @@
     require_once("connection.php");
 
     if(isset($_GET["submit"])) {
-        for ($i=0; $i<200; $i++) {
+        for ($i=0; $i<30; $i++) {
 
             $pavadinimas = "pavadinimas".$i;
-            $aprasymas = "aprasymas".$i;
             $tipas_id = rand(1, 4);
 
-            $sql = "INSERT INTO `imones`(`pavadinimas`, `aprasymas`, `tipas_ID`) 
-            VALUES ('$pavadinimas','$aprasymas','$tipas_id')";
+            $sql = "INSERT INTO `imones`(`pavadinimas`, `tipas_ID`) 
+            VALUES ('$pavadinimas','$tipas_id')";
 
             if(mysqli_query($conn, $sql)) {
                 echo "Vartotojas sukurtas sekmingai";

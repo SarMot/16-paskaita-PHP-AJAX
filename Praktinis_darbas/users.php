@@ -26,7 +26,7 @@
 
         <button id="user_create">Sukurti nauja Vartotoja</button>
         
-        <div class="companyForm d-none">
+        <div class="userForm d-none">
             <input  id="vardas" class="form-control" placeholder="Įveskite vartotojo varda" />
             <input id="slapyvardis" class="form-control" placeholder="Įveskite vartotojo slapyvardi" />
             <input id="slaptazodis" class="password" placeholder="Įveskite vartotojo slaptazodi" />

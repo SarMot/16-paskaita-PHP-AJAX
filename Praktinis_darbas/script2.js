@@ -28,7 +28,8 @@ document.querySelector("#user_create").addEventListener("click", function() {
 document.querySelector("#createUser").addEventListener("click", function() { 
     var vardas = document.querySelector("#vardas").value;
     var slapyvardis = document.querySelector("#slapyvardis").value;
-    var tipas_id = document.querySelector("#tipas_id").value;
+    var slaptazodis = document.querySelector("#slaptazodis").value;
+    var teises_id = document.querySelector("#teises_id").value;
 
     var xhttp = new XMLHttpRequest(); //objektas
 
@@ -38,7 +39,7 @@ document.querySelector("#createUser").addEventListener("click", function() {
         }
     };
     
-    xhttp.open("GET", "addUsers.php?vardas=" + vardas + "&aslapyvardis=" + slapyvardis + "&tipas_id=" + tipas_id, true);
+    xhttp.open("GET", "addUsers.php?vardas=" + vardas + "&slapyvardis=" + slapyvardis + "&teises_id=" + teises_id, true);
     xhttp.send();
     
     showUsers();
